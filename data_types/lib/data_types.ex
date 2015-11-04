@@ -52,12 +52,12 @@ defmodule DataTypes do
   end
 
   # Update the alliance to its opposite
-  def flip_side(%{name: name, alliance: alliance,  side: "dark"}) do
-    %{name: name, alliance: alliance, side: "force"}
+  def flip_side(%{side: "dark"} = character) do
+    Dict.put(character, :side, "force")
   end
 
-  def flip_side(%{name: name, alliance: alliance,  side: "force"}) do
-    %{name: name, alliance: alliance, side: "dark"}
+  def flip_side(%{side: "force"} = character) do
+    Dict.put(character, :side, "dark")
   end
   # Create a LOM: list of maps of three characters
   # Update or replace the second item in the list with 'Jabba the Hutt' and :scum or :criminal as the side
